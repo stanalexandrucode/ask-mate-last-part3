@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="add_text">
+    <h2>Ask a question</h2>
+        <form action="/add_question" method="POST">
+
+            <h3><label for="title">Title:</label><br>
+            <input id="title" name="title" type="text" size="40" placeholder="story title"
+                   value="{{ value | replace('\'', '\\\'') | replace('&quot', '\\&quot') | e }}"></h3>
+
+            <h3><label for="message">Message:</label><br>
+            <textarea id="message" name="message" placeholder="message"
+                      rows="5", cols="40"></textarea></h3>
+
+            <h3><label for="image">Add your image url:</label>
+            <input type="url" id="image" name="image" placeholder="url"></h3><br>
+            <button type="submit" class="border_btn">Add new question</button>
+        </form>
+</div>
+
+{% endblock %}
+

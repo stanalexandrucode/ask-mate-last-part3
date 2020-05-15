@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td><h3>Title</h3></td>
+                <td><h3>Message</h3></td>
+                <td><h3>Submission Time</h3></td>
+                <td><h3>View Number</h3></td>
+                <td colspan="3"><h3>Vote Number</h3></td>
+                <td><h3>Image</h3></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <div class="dropdown">
+                <form action="/list" method="GET" >
+                    <label for="ordered_by"></label>
+                    <select id="ordered_by" name="ordered_by" class="dropbtn">
+                        <option selected="selected" class="dropdown-content"> {{ordered_by}} </option>
+                        <option value="submission_time" class="dropdown-content">submission_time</option>
+                        <option value="view_number" class="dropdown-content">view_number</option>
+                        <option value="vote_number" class="dropdown-content">vote_number</option>
+                        <option value="title" class="dropdown-content">title</option>
+                        <option value="message" class="dropdown-content">message</option>
+                    </select>
+                    <label for="ordered_direction"></label>
+                    <select id="ordered_direction" name="ordered_direction" class="dropbtn">
+                        <option selected="selected" > {{ordered_direction}} </option>
+                        <option value="asc" class="dropdown-content">asc</option>
+                        <option value="desc" class="dropdown-content">desc</option>
+                    </select>
+                    <input type="submit" value="Submit" class="square_btn">
+                </form>
+            </div>
+        <br><br>
+
+            {% for question in questions %}
+
+            <tr>
+                <td><a href="/question/{{ question['id'] }}"><strong>{{ question['title'] }}</strong></a></td>
+                <td>{{ question['message'] }}</td>
+                <td>{{ question['submission_time'] }}</td>
+                <td>{{ question['view_number'] }}</td>
+                <td>{{ question['vote_number'] }}</td>
+                <td><button type="button" class="vote"><a href="/question/{{ question['id'] }}/vote_up"><i class="fa fa-thumbs-o-up"></i></a></button></td>
+                <td><button type="button" class="vote"><a href="/question/{{ question['id'] }}/vote_down"><i class="fa fa-thumbs-o-down"></i></a></button></td>
+                <td><img src="{{ question['image'] }}" height="150" alt="image from url" ></td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+{% endblock %}
+

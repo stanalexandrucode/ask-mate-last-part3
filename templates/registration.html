@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+
+    <div class="registration">
+    <h1>Register new user</h1>
+    <form action="/registration" method="POST">
+        <p>Username</p>
+        <input type="email" name="username" placeholder="Enter email address">
+        <p>Password</p>
+        <input type="password" name="password" placeholder="Enter Password"></p>
+        <input type="submit" name="login" value="Login">
+        <a href="/forgot-pass">Forgot Password</a>
+    </form>
+    </div>
+
+
+{% endblock %}

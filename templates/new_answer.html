@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+    <div class="add_text">
+        <h2>Post a new answer</h2><br><br>
+
+        <form action="/question/{{ id }}/new_answer" method="POST">
+
+            <h3><label for="message">Message:</label><br></h3>
+            <textarea id="message" name="message" placeholder="new answer" rows="10" cols="30"></textarea><br><br>
+
+            <h3><label for="image">Add image url: </label></h3>
+            <input type="url" id="image" name="image" placeholder="url"><br>
+
+            <br><button type="submit">Submit</button>
+        </form>
+
+    </div>
+{% endblock %}
+
+

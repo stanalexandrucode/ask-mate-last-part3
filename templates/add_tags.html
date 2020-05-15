@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+<form action="/question/{{ question_id }}" method="POST">
+        {% for tag in tags %}
+        <input type="radio" name="add_tag" value="{{tag.get('id','')}}"><span>{{ tag.get('name','') }}</span><br/>
+        {% endfor %}
+        <button type="submit">Add Selected Tags</button>
+</form>
+<form action="/question/{{ question_id }}/new-tag" method="POST">
+    <label for="new_tag">Add your new tag:</label><br>
+    <input id="new_tag" name="new_tag" type="text" placeholder="Tag"><br>
+    <button type="submit">Add new tag</button>
+</form>
+
+{% endblock %}
+
+

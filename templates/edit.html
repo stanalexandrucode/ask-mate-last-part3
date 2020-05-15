@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="add_text">
+    <h2>Edit question: {{ data.title }}</h2>
+        <form action="/question/{{id}}/edit" method="POST">
+
+            <h3><label for="title">Title:</label>
+            <input id="title" name="title" type="text" size="40" value="{{ data.get('title','') }}"></h3>
+
+            <h3><label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" cols="40">{{ data.get('message','') }}</textarea></h3>
+
+            <h3><label for="image">Add your image:</label>
+            <input type="url" id="image" name="image" value="{{ data.get('image','') }}"></h3>
+
+            <button type="submit">Update Question</button>
+        </form>
+</div>
+
+{% endblock %}
+
+

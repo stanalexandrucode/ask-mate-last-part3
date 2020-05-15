@@ -1,0 +1,14 @@
+click==7.1.2
+Flask==1.1.2
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+psycopg2-binary==2.8.5
+Werkzeug==1.0.1
+toml~=0.10.0
+pip~=20.1
+wheel~=0.34.2
+colorama~=0.4.3
+psycopg2~=2.8.5
+setuptools~=46.2.0
+bcrypt~=3.1.7

@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<table class="table">
+  <thead>
+    <tr >
+      <td scope="col"><h5><b>Username</b></h5></td>
+      <td scope="col"><h5>Registration date</h5></td>
+      <td scope="col"><h5>Count of asked questions</h5></td>
+      <td scope="col"><h5>Count of answers</h5></td>
+      <td scope="col"><h5>Count of comments</h5></td>
+      <td scope="col"><h5>Reputation </h5></td>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for user in users %}
+    <tr>
+      <td scope="row"><a href="/users/{{ session.user_id }}"><strong>{{ user.username }} </strong></a></td>
+      <td>{{ user.submission_time }}</td>
+      <td>{{ user.count_questions }}</td>
+      <td>{{ user.count_answers }}</td>
+      <td>{{ user.count_comments }}</td>
+      <td>{{ user.reputation }}</td>
+    </tr>
+        {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

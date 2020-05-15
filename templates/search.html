@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+    <h2>Result questions</h2>
+<div class="search_result">
+    <table >
+        <tr>
+            <td><h3>Title</h3></td>
+            <td><h3>Message</h3></td>
+            <td><h3>Submission time</h3></td>
+            <td><h3>View number</h3></td>
+            <td><h3>Vote number</h3></td>
+            <td><h3>Image</h3></td>
+            <td><h3>Answer message</h3></td>
+            <td><h3>Answer submission time</h3></td>
+            <td><h3>Answer vote number</h3></td>
+        </tr>
+        {% for question in search_text %}
+        <tr>
+            <td><a href="/question/{{ question.id }}"><strong>{{ question.title | replace (phrase, '<mark>' + phrase + '</mark>') | safe }}</strong></a></td>
+            <td>{{ question.message | replace (phrase, '<mark>' + phrase + '</mark>') | safe }}</td>
+            <td>{{ question.submission_time }}</td>
+            <td>{{ question.view_number }}</td>
+            <td>{{ question.vote_number }}</td>
+            <td>{{ question.image }}</td>
+            {% if question.answer_id != "None" %}
+                <td>{{ question.answer_message | replace (phrase, '<mark>' + phrase + '</mark>') | safe }}</td>
+                <td>{{ question.answer_submission_time }}</td>
+                <td>{{ question.answer_vote_number }}</td>
+            {% endif %}
+        </tr>
+        {%  endfor %}
+    </table>
+</div>
+
+{% endblock %}

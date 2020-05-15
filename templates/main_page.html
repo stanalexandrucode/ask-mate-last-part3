@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block content %}
+
+    <h2>Latest Questions</h2>
+    <table>
+        <thead>
+            <tr>
+                <td><h3>Title</h3></td>
+                <td><h3>Message</h3></td>
+                <td><h3>Submission Time</h3></td>
+                <td><h3>View Number</h3></td>
+                <td colspan="3"><h3>Vote Number</h3></td>
+                <td><h3>Image</h3></td>
+            </tr>
+        </thead>
+        {% for entry in data %}
+        <tbody>
+            <tr>
+                <td><a href="/question/{{ entry.get('id','') }}"><strong>{{ entry.get('title','') }}</strong></a></td>
+                <td>{{ entry.get('message','') }}</td>
+                <td>{{ entry.get('submission_time','') }}</td>
+                <td>{{ entry.get('view_number','') }}</td>
+                <td>{{ entry.get('vote_number','') }}</td>
+                <td><button type="button" class="vote"><a href="/question/{{ entry.get('id','') }}/vote_up"><i class="fa fa-thumbs-o-up"></i></a></button></td>
+                <td><button type="button" class="vote"><a href="/question/{{ entry.get('id','') }}/vote_down"><i class="fa fa-thumbs-o-down"></i></a></button></td></td>
+                <td><img src="{{ entry.get('image','') }}" height="150" alt="image from url"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

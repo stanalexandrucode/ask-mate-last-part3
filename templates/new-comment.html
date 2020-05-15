@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+<div class="add_text">
+
+    <h2>Add comment:</h2>
+
+    <form action="/question/{{ id }}/new-comment" method="POST"><br><br><br><br>
+        <textarea id="add-comment" name="add-comment" placeholder="Add comment" rows="5" cols="40"></textarea><br><br><br>
+        <button type="submit">Submit comment</button>
+    </form>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+
+{% extends 'index.html' %}
+{% block content %}
+
+        <div class="login-box">
+            <img src="/static/styles/avatar.png" class="avatar" alt="picture">
+            <h1>Login Here</h1>
+            <form action="/login" method="POST">
+               <p>Username</p>
+               <input type="email" name="username" placeholder="Enter Username">
+               <p>Password</p>
+               <input type="password" name="password" placeholder="Enter Password"></p>
+               <input type="submit" name="login" value="Login">
+               <a href="/forgot-pass">Forgot Password</a>
+            </form>
+        </div>
+
+{% endblock content %}
