@@ -9,6 +9,5 @@ toml~=0.10.0
 pip~=20.1
 wheel~=0.34.2
 colorama~=0.4.3
-psycopg2~=2.8.5
 setuptools~=46.2.0
-bcrypt~=3.1.7
+
