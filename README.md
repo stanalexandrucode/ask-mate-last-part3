@@ -18,4 +18,5 @@ On question's page the users can add comment, delete comment, edit comment. Edit
 The questions's comments can be replied with answers. Also, the answers can be deleted, edited, voted and can be replaied.
 ![Register](/images/QuestDetails.png 'Register')
 
-
+We can see what users are in DB.
+![Register](/images/allUsers.png 'Register')
