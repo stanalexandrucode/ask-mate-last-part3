@@ -9,4 +9,5 @@ By Register and Login the user will be able to access new options (add a questio
 
 
 Each question has a subbmision time, number of views, number of votes, title, message and image.
-![Register](/images/register.png 'Logged User')
+
+![Register](/images/addQuestion.png 'Logged User')
