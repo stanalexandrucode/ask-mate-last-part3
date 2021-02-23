@@ -1,171 +1,109 @@
-# AskMate (sprint 1)
+# API Wars
+
+The site provides data about the planets, with lots of details, from
+the Star Wars Universe. 
+
+![Register](/img/register.png 'Register')
+
+The logged in user can vote (new button appears on the "vote"
+column) a planet.
+
+![Planets](/img/planets.png 'Planets')
+
+There is a button to examine the Star Wars characters that come
+from a specific planet.
+
+![Residents](/img/residents.png 'Residents')
+
+
+May the Force be with you!
+
+## For the [the live version](https://sw-mihai.herokuapp.com/) of the app.
+
+
 
 ## Story
 
-Its time to put your newly acquired Flask skills to use! Your next big task will be to implement a crowdsourced Q&A site, like Stack Overflow.
+Because you are so awesome, a golden humanoid droid want to meet you in the
+nearest Kantina....
 
-The initial version of the site should be able to handle questions and answers, there is no need for other functionality like user management or comments for questions/answers.
+[Watch this
+intro!](https://starwarsintrocreator.kassellabs.io/?ref=redirect#!/BM1kT5Ezi0Q0b-Ell8TE)
 
-The management was very interested in the agile development methodologies that they just recently hear about, thus they are handing out a **prioritized list** of user stories called a product backlog. Try to estimate how many of these stories your team can finish until the demo. As the order is important, you should choose from the beginning of the list as much as you can, **the first four stories are the most important**.
+Your task is to create a little web application which shows data about the Star
+Wars universe, store visitor preferences with cookies and handle user login with
+sessions.
 
 ## What are you going to learn?
- - create a Flask project
- - use routes with Flask
- - use HTML and the Jinja templating engine
- - CSV handling
+- create a Flask project,
+- use routes with Flask,
+- use Bootstrap,
+- use AJAX for API requests,
+- session handling,
+- simple queries in SQL,
+- password storage.
 
-## User Stories
-
-
-1. Implement the `/list` page that displays all questions.
-
-    - The page is available under `/list`
-    - Load and display the data from `question.csv`
-    - Sort the questions by the latest question on top
-
-2. Create the `/question/<question_id>` page that displays a question and the answers for it.
-
-    - The page is available under `/question/<question_id>`
-    - There are links to the question pages from the list page
-    - The page displays the question title and message
-    - The page displays all the answers to a question
-
-3. Implement a form that allows you to add a question.
-
-    - There is an `/add-question` page with a form
-    - The page is linked from the list page
-    - There is a POST form with at least `title` and `message` fields
-    - After submitting, you are redirected to "Display a question" page of this new question
-
-4. Implement posting a new answer.
-
-    - The page URL is `/question/<question_id>/new-answer`
-    - The question detail page links to this page
-    - The page has a POST form with a form field called `message`
-    - Posting an answer redirects you back to the question detail page, and the new answer is there
-
-5. Implement sorting for the question list.
-
-    - The question list can be sorted by title, submission time, message, number of views, and number of votes
-    - You can choose the direction: ascending or descending
-    - The order is passed as query string parameters, for example `/list?order_by=title&order_direction=desc`
-
-6. Implement deleting a question.
-
-    - Deleting is implemented by the `/question/<question_id>/delete` endpoint
-    - There should be a deletion link on the question page
-    - Deleting redirects you back to the list of questions
-
-7. Allow the user to upload an image for a question or answer.
-
-    - The forms for adding question and answer contain an "image" file field
-    - You can attach an image (.jpg, .png)
-    - The image is saved on server and displayed next to question / answer
-    - When you delete the question / answer, the file gets deleted as well
-
-8. Implement editing an existing question.
-
-    - There is a `/question/<question_id>/edit` page
-    - The page is linked from the question's page
-    - There is a POST form with at least `title` and `message` fields
-    - The fields are pre-filled with existing question's data
-    - After submitting, you are redirected back to "Display a question" page and you see the changed data
-
-9. Implement deleting an answer.
-
-    - Deleting is implemented by `/answer/<answer_id>/delete` endpoint
-    - There should be a deletion link on the question page, next to an answer
-    - Deleting redirects you back to the question detail page
-
-10. Implement voting on questions.
-
-    - Vote numbers are displayed next to questions on the question list page
-    - There are "vote up/down" links next to questions on the question list page
-    - Voting uses `/question/<question_id>/vote_up` and `/question/<question_id>/vote_down` endpoints
-    - Voting up increases, voting down decreases the `vote_number` of the question by one
-    - Voting redirects you back to the question list
-
-11. Implement voting on answers.
-
-    - Vote numbers are displayed next to answers on the question detail page
-    - There are "vote up/down" links next to answers
-    - Voting uses `/answer/<answer_id>/vote_up` and `/answer/<answer_id>/vote_down` endpoints
-    - Voting up increases, voting down decreases the `vote_number` of the answer by one
-    - Voting redirects you back to the question detail page
+## Tasks
 
 
-## General requirements
+1. Create a web server rendering a page that shows a table with all the planets in the Star Wars universe.
 
+    - The opening page of the website (`/`) shows data of 10 planets
+    - The page has an HTML `<table>` element containing the data
+    - The columns of the table are `name`, `diameter` (shown in km), `climate`, `terrain`, `surface water` (shown as percentage), `population` (formatted as `1,000,000 people`)
+    - The column titles are proper table headers
+    - The page follows this basic design: ![API Wars Screenshot 01](https://learn.code.cool/media/web/apiwars-screenshot-01.png)
+    - There's a next button above the table, clicking that shows the next 10 planets, if any
+    - There's a previous button above the table, clicking that shows the previous 10 planets, if any
+    - Double clicking on the next or previous buttons shows the next/previous 10 planets only once
+    - Unknown values for surface water percentage and population are stated clearly and without any suffix (e.g for planet Coruscant and Hoth)
 
- - All data should be persisted to `.csv` files. You will need a `questions.csv` for storing all questions and an `answers.csv` for storing all answers.
+2. Display a button in each row if the planet has residents. These buttons should open a modal, populate its data containing the list of residents with more detailed information.
 
+    - In the planet table there is a button in each row in a new column showing the planet's number of residents if the planet has any, otherwise the `No known residents` text is shown
+    - Clicking the `<n> residents` button in the planet table, a modal shows up showing all the residents of that planet (every time)
+    - The modal has an HTML `<table>` element containing the data
+    - The columns of the table are `name`, `height` (shown in meters), `mass` (shown in kg), `skin color`, `hair color`, `eye color`, `birth year`, `gender` (an icon representation)
+    - Data is loaded into the table without page refresh (with AJAX)
+    - There is an X icon in the top right corner and a `Close` button in the bottom right corner; clicking these closes the modal
+    - The modal follows this basic design: ![API Wars Screenshot 02](https://learn.code.cool/media/web/apiwars-screenshot-02.png)
 
-## Hints
+3. Create a simple user login system with registration page, login page and logout link in the header.
 
-#### Project structure
+    - There is a link in the header that leads to the registration page
+    - On the registration page (`/register` route) the visitor can create a username/password pair that gets stored in the database
+    - Password storage and retrieval uses salted password hashing for maximum security
+    - If either field is empty while clicking on the `Submit` button on the registration page the `Please, fill in both fields.` error message appears
+    - If the username field contains a username that already exists in the database while clicking on the `Submit` button on the registration page the `Username already exists, please choose another one!` error message appears
+    - On successful registration the `Successful registration. Log in to continue.` text is shown and the user is redirected to the login page
+    - There is a link in the header that leads to the login page
+    - On the login page (`/login` route) the visitor can log in using the username/password previously created during registration
+    - If the username/password pair doesn't match while clicking on the `Submit` button on the login page the `Wrong username or password.` error message appears
+    - After logging in, the username is displayed in the top right corner with the text `Signed in as <username>` and a logout link is shown in the header
+    - Clicking the logout link (`/logout` route) logs the user out
 
-We recommend, that you split the code into modules according to clean code principles: Do not put more than 100-150 lines of code into a single file, files should contain logically the same things, etc.
+4. [OPTIONAL] If the user is logged in, display a button in each row with which the logged in user can vote on a planet. Save this vote in a database and inform a user that the vote has been saved.
 
-For example, you could split it up to these 3+1 parts:
+    - If the user is logged in, a `Vote` button is displayed in the planet table in a new column
+    - Clicking the vote button saves the vote in the database without refreshing the page (with AJAX)
+    - If the save is successful after clicking the vote button, the `Voted on planet <planetname> successfully.` message appears
+    - If the save is failed after clicking the vote button, the `There was an error during voting on planet <planetname>.` error message appears
+    - Users can vote on unlimited number of planets and with unlimited number of votes on a planet
 
-**Layer** | **Example filename** | **What should it do/contain?**
----|---|---
-Routing layer | server.py | Flask stuff (server, routes, request handling, session, etc.)<br>This layer should consist of logic that is related to Flask. (with other words: this should be the only file importing from flask)
-Persistence layer | data_manager.py | Layer between the server and the data. Functions here should be called from the server.py and these should use generic functions from the connection.py
-CSV _(later SQL)_ connection layer |  connection.py | Common functions to read/write/append CSV files without feature specific knowledge.<br>The layer that have access to any kind of long term data storage. In this case, we use CSV files, but later on we'll change this to SQL database.
-Utility "layer" | util.py | Helper functions which can be called from any other layer. (but mainly from the business logic layer)
+5. [OPTIONAL] Create a new modal window accessible from the main page where you display the statistics about voted planets.
 
-This is just one way to structure your code, you don't have to follow it _strictly_.
+    - There is a link in the header that opens a modal showing voting statistics based on the user votes saved in the database
+    - The modal has an HTML `<table>` element containing the data
+    - The columns of the table are `Planet name`, `Received votes`
+    - Data is loaded into the table without page refresh (with AJAX)
+    - There is an X icon in the top right corner and a `Close` button in the bottom right corner; clicking these closes the modal
+    - The modal follows this basic design: ![API Wars Screenshot 03](https://learn.code.cool/media/web/apiwars-screenshot-03.png)
 
-### Data models
+6. [OPTIONAL] Do some improvements in order to make the web application easier to use.
 
-In the `sample_data` folder you'll see two sample files for questions and answers.
-
-These look like the following (you can ignore data in the not implemented fields):
-
-**question.csv**<br>
-*id:* A unique identifier for the question<br>
-*submission_time:* The UNIX timestamp when the question was posted<br>
-*view_number:* How many times this question was displayed in the single question view<br>
-*vote_number:* The sum of votes this question has received<br>
-*title:* The title of the question<br>
-*message:* The question text<br>
-*image:* The path to the image for this question<br>
-
-**answer.csv**<br>
-*id:* A unique identifier for the answer<br>
-*submission_time:* The UNIX timestamp when the answer was posted<br>
-*vote_number:* The sum of votes this answer has received<br>
-*question_id:* The id of the question this answer belongs to.<br>
-*message:* The answer text<br>
-*image:* the path to the image for this answer<br>
-
-## Starting repository
-
-> **For your information**: Unfortunately, GitHub Classroom has an unstable service regarding repository creation and imports. If your repository fails to create or there are issues with code imports you can do the following steps:
->
-> 1. Wait. Sometimes it gets done after 1-2 hours.
-> 2. Write to your mentors to do it manually for you.
->
-> In the meantime, we are working on an own solution to replace GitHub Classroom. We plan to have it in the first quarter of 2020.
-
-Click here to clone your own Git repository:
-https://classroom.github.com/g/PD6sfLga
-
-## Background materials
-
-- :exclamation: [Understanding the web](https://learn.code.cool/full-stack/#/../pages/web/understanding-the-web)
-- :exclamation: [Introduction to HTML](https://learn.code.cool/full-stack/#/../tutorials/introduction-to-html)
-- :exclamation: [Pip and VirtualEnv](https://learn.code.cool/full-stack/#/../pages/python/pip-and-virtualenv)
-- :exclamation: [A web-framework for Python: Flask](https://learn.code.cool/full-stack/#/../pages/python/python-flask)
-- :open_book: [Flask documentation](http://flask.palletsprojects.com/) (the Quickstart gives a good overview)
-- :open_book: [Jinja2 documentation](https://jinja.palletsprojects.com/en/2.10.x/templates/)
-- :open_book: [HTML tutorials and references on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [Tips & Tricks](https://learn.code.cool/full-stack/#/../pages/web/web-with-python-tips.md)
-- [About unique identifiers](https://learn.code.cool/full-stack/#/../pages/general/unique-id.md)
-
-
-## Acceptance review
-
-You will need this only at review time, **after** completing the project.
-[Use this form](https://forms.gle/s5qBi8tJqdcub1tA7) to record the review you provide for your peer.
+    - Planet list is showing a loading indicator while the content is loading
+    - Planet list navigation gets disabled while the requested data is loading
+    - Residents modal is showing a loading indicator while the content is loading
+    - Residents modal is not showing the table's header until the content is loaded
+    - A nice background image is used, that fits nicely to the site and does not draw your attention out from actual content
+    - Bootstrap is used with non-default colors is used (custom build, or a bootswatch theme)
