@@ -18,8 +18,6 @@ from a specific planet.
 
 May the Force be with you!
 
-## For the [the live version](https://sw-mihai.herokuapp.com/) of the app.
-
 
 
 ## Story
