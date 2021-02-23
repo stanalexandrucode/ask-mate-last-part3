@@ -9,6 +9,12 @@ By Register and Login the user will be able to access new options (add a questio
 
 
 Each question has a subbmision time, number of views, number of votes, title, message and the questions can be sorted by different options.
+We can search the question or an answer.
 
 ![Register](/images/Logged.png 'Register')
+
+
+On question's page the users can add comment, delete comment, edit comment. Edited comments are counted.
+![Register](/images/QuestDetails.png 'Register')
+
 
