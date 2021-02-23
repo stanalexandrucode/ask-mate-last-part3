@@ -15,6 +15,7 @@ We can search the question or an answer.
 
 
 On question's page the users can add comment, delete comment, edit comment. Edited comments are counted. Add Taggs.
+The questions's comments can be replied with answers. Also, the answers can be deleted, edited, voted and can be replaied.
 ![Register](/images/QuestDetails.png 'Register')
 
 
