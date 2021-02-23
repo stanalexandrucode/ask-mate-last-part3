@@ -50,7 +50,6 @@ sessions.
     - The page has an HTML `<table>` element containing the data
     - The columns of the table are `name`, `diameter` (shown in km), `climate`, `terrain`, `surface water` (shown as percentage), `population` (formatted as `1,000,000 people`)
     - The column titles are proper table headers
-    - The page follows this basic design: ![API Wars Screenshot 01](https://learn.code.cool/media/web/apiwars-screenshot-01.png)
     - There's a next button above the table, clicking that shows the next 10 planets, if any
     - There's a previous button above the table, clicking that shows the previous 10 planets, if any
     - Double clicking on the next or previous buttons shows the next/previous 10 planets only once
@@ -64,7 +63,7 @@ sessions.
     - The columns of the table are `name`, `height` (shown in meters), `mass` (shown in kg), `skin color`, `hair color`, `eye color`, `birth year`, `gender` (an icon representation)
     - Data is loaded into the table without page refresh (with AJAX)
     - There is an X icon in the top right corner and a `Close` button in the bottom right corner; clicking these closes the modal
-    - The modal follows this basic design: ![API Wars Screenshot 02](https://learn.code.cool/media/web/apiwars-screenshot-02.png)
+
 
 3. Create a simple user login system with registration page, login page and logout link in the header.
 
@@ -95,7 +94,6 @@ sessions.
     - The columns of the table are `Planet name`, `Received votes`
     - Data is loaded into the table without page refresh (with AJAX)
     - There is an X icon in the top right corner and a `Close` button in the bottom right corner; clicking these closes the modal
-    - The modal follows this basic design: ![API Wars Screenshot 03](https://learn.code.cool/media/web/apiwars-screenshot-03.png)
 
 6. [OPTIONAL] Do some improvements in order to make the web application easier to use.
 
