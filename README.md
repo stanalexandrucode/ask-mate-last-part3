@@ -14,7 +14,7 @@ We can search the question or an answer.
 ![Register](/images/Logged.png 'Register')
 
 
-On question's page the users can add comment, delete comment, edit comment. Edited comments are counted.
+On question's page the users can add comment, delete comment, edit comment. Edited comments are counted. Add Taggs.
 ![Register](/images/QuestDetails.png 'Register')
 
 
