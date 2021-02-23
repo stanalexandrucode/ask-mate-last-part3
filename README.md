@@ -8,7 +8,7 @@ By Register and Login the user will be able to access new options (add a questio
 ![Register](/images/addQuestion.png 'Register')
 
 
-Each question has a subbmision time, number of views, number of votes, title, message and image.
+Each question has a subbmision time, number of views, number of votes, title, message and the questions can be sorted by different options.
 
 ![Register](/images/Logged.png 'Register')
 
